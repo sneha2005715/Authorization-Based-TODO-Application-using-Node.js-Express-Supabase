@@ -1,0 +1,7 @@
+create table todos (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  completed boolean default false,
+  userId uuid references users(id) on delete cascade,
+  created_at timestamp default now()
+);
